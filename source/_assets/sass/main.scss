@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600');
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+$bannerBlue: #0089AF;
+$textBlue: #348CB7;
+$black: #2E2E2E;
+$grey: #787878;
+$sansSerif: 'Roboto', sans-serif;
+$yellow: #EDCA7C;
+$yellowText: #5D5432;
+$bgBlue: #EFF7FA;
+$highlightBlue: #00AAD9;
+$darkBlue: #3D4E53;
+
+* {
+    font-family: Roboto,sans-serif;
+}
+
+body {
+    border-top: 10px solid $bannerBlue;
+    color: $black;
+    padding-top: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    color: $textBlue;
+    transition: color .5s;
+}
+
+a:hover {
+    color: darken($textBlue, 10);
+    text-decoration: none;
+}
+
+.navbar-default {
+    background-color: #ffffff;
+    border: none;
+}
+
+.b {
+    display: block;
+}
+
+.undec {
+    text-decoration: none;
+}
+
+.pad {
+    padding: 10px;
+}
+
+.nav-item-sub {
+    padding-left: 30px;
+}

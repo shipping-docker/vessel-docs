@@ -1,0 +1,14 @@
+{
+    "name": "fideloper/vessel-docs",
+    "description": "Docs site for Vessel",
+    "type": "project",
+    "require": {
+        "tightenco/jigsaw": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Chris Fidao",
+            "email": "fideloper@gmail.com"
+        }
+    ]
+}

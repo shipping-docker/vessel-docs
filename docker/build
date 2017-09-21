@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker build -f app/Dockerfile -t sd-static/app:latest ./app

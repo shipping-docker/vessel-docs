@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+if [ $# -gt 0 ];then
+    # If "composer" is used, pass-thru to "composer"
+    # inside a new container
+    if [ "$1" == "composer" ]; then
+        shift 1
+        docker run -it --rm \
+            -v $(pwd):/opt \
+            -w /opt \
+            sd-static/app \
+            composer "$@"
+
+    # If "npm" is used, run npm
+    # from our node container
+    elif [ "$1" == "npm" ]; then
+        shift 1
+        docker run -it --rm \
+            -v $(pwd):/opt \
+            -w /opt \
+            sd-static/app \
+            npm "$@"
+
+    # If "yarn" is used, run yarn
+    # from our node container
+    elif [ "$1" == "yarn" ]; then
+        shift 1
+        docker run -it --rm \
+            -v $(pwd):/opt \
+            -w /opt \
+            sd-static/app \
+            yarn "$@"
+
+    # If "gulp" is used, run gulp
+    # from our node container
+    elif [ "$1" == "gulp" ]; then
+        shift 1
+        docker run -it --rm \
+            -v $(pwd):/opt \
+            -w /opt \
+            sd-static/app \
+            ./node_modules/.bin/gulp "$@"
+    fi
+fi
