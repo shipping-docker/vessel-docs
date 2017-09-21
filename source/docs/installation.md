@@ -2,11 +2,7 @@
 extends: _layouts.master
 section: body
 ---
-# Vessel
-
-Up and running with small Docker dev environments.
-
-## Install
+# Install
 
 Vessel is just a small set of files that sets up a local Docker-based dev environment per project. There is nothing to install globally, except Docker itself!
 
@@ -17,7 +13,7 @@ composer require fideloper/vessel
 php artisan vendor:publish --provider="Vessel\VesselServiceProvider"
 ```
 
-> Note: You must install Docker to use this project. See Installing Docker for details and supported systems.
+> Note: You must install Docker to use this project. See [Installing Docker](/docs/installing-docker) for details and supported systems.
 
 ## Getting Started
 
