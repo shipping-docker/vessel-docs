@@ -35,6 +35,13 @@
                 </div>
             </div>
         </div>
-
+        <footer>
+            <div class="container tac">
+                <div class="col-md-12">
+                    <p>A <a href="https://serversforhackers.com/shipping-docker">Shipping Docker</a> Project</p>
+                    <p class="sm">&copy; {{ date('Y') }} - Fideloper LLC</p>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

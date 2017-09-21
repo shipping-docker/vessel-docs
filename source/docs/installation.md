@@ -6,7 +6,7 @@ section: body
 
 Vessel is just a small set of files that sets up a local Docker-based dev environment per project. There is nothing to install globally, except Docker itself!
 
-This is all there is to installing it in any given project:
+This is all there is to installing it in any given Laravel project:
 
 ```bash
 composer require fideloper/vessel
@@ -51,7 +51,7 @@ This will start your containers and listen on port 80 for web requests.
 ./vessel up -d
 ```
 
-### Stoppig Vessel
+### Stopping Vessel
 
 Stopping Vessel will stop the containers and destroy them. They get recreated when you start Vessel back up. Your data (database/cache) is saved between restarts.
 
