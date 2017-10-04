@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,600");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,600|Roboto+Slab");
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -7671,11 +7671,11 @@ button.close {
 }
 
 * {
-  font-family: Roboto,sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-  border-top: 10px solid #0089AF;
+  background: #f9fafc;
   color: #3b4c52;
   padding-top: 50px;
   margin: 0;
@@ -7696,6 +7696,10 @@ a:hover {
 
 li, p, pre {
   margin: 0 0 14px 0;
+}
+
+.toc-nav {
+  padding-right: 20px;
 }
 
 .nav li {
@@ -7725,6 +7729,20 @@ h3 {
   margin-bottom: 15px;
 }
 
+.section-label h1 {
+  color: #819ba5;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 20px 0;
+  padding: 0 15px;
+  letter-spacing: 1px;
+}
+
+.github-icon,
+.navbar-nav > li > a.github-icon {
+  line-height: 0;
+}
+
 .navbar,
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
@@ -7732,8 +7750,13 @@ h3 {
 }
 
 .navbar-default {
-  background-color: #EFF7FA;
+  background-color: #ffffff;
   border-color: #e8e8e8;
+}
+
+.nav-wrap {
+  padding: 0 15px;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .b {
@@ -7754,13 +7777,12 @@ h3 {
 
 .nav-item {
   color: #3b4c52;
-  font-size: 18px;
-  border-bottom: 1px solid #e8e8e8;
+  font-size: 16px;
+  border-radius: 3px;
 }
 
-.nav-item:hover {
-  color: #263134;
-  background: #EFF7FA;
+.nav-item:hover, .nav-item.active {
+  background: #ffffff;
 }
 
 .nav-item-sub {
@@ -7769,6 +7791,19 @@ h3 {
 
 .sm {
   font-size: 12px;
+}
+
+.content {
+  padding: 10px 0;
+}
+
+.intro {
+  font-family: "Roboto Slab", serif;
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 30px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #cfcfcf;
 }
 
 img {

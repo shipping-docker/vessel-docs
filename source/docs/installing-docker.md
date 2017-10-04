@@ -1,10 +1,12 @@
 ---
 extends: _layouts.master
 section: body
+title: Installing Docker
 ---
-# Installing Docker
 
-Vessel requires Docker, and currenty only works on Mac and Linux.
+<p class="intro">Vessel's only requirment is Docker.</p>
+
+<p>Vessel currently only works on Macintosh and Linux. It uses a bash script to run Docker commands.</p>
 
 > Window support may come in the future. It will require running Hyper-V.
 

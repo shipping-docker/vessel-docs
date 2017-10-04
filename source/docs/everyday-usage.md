@@ -1,8 +1,10 @@
 ---
 extends: _layouts.master
 section: body
+title: Everyday Usage
 ---
-# Everyday Usage
+
+<p class="intro">Vessel aims to make your everyday development easy, as if you're not using Docker at all. Here's how to run your everyday commands.</p>
 
 ## Composer
 

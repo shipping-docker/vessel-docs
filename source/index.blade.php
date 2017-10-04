@@ -1,9 +1,7 @@
 @extends('_layouts.master')
 
 @section('body')
-<h1>Vessel</h1>
-
-<p>Vessel is a tiny Docker environment that aims to be easy to use with your Laravel applications.</p>
+<p class="intro">Vessel is a tiny Docker environment that aims to be easy to use with your Laravel applications.</p>
 
 <h2>What's Included</h2>
 

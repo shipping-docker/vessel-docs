@@ -1,10 +1,10 @@
 ---
 extends: _layouts.master
 section: body
+title: Installation
 ---
-# Install
 
-Vessel is just a small set of files that sets up a local Docker-based dev environment per project. There is nothing to install globally, except Docker itself!
+<p class="intro">Vessel is just a small set of files that sets up a local Docker-based dev environment per project. There is nothing to install globally, except Docker itself!</p>
 
 This is all there is to installing it in any given Laravel project:
 

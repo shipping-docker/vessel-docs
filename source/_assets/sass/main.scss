@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600|Roboto+Slab');
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 
@@ -7,6 +7,7 @@ $textBlue: #348CB7;
 $black: #3b4c52;
 $grey: #787878;
 $sansSerif: 'Roboto', sans-serif;
+$serif: 'Roboto Slab', serif;
 $yellow: #EDCA7C;
 $yellowText: #5D5432;
 $bgBlue: #EFF7FA;
@@ -15,11 +16,11 @@ $darkBlue: #3D4E53;
 $borderColor: #e8e8e8;
 
 * {
-    font-family: Roboto,sans-serif;
+    font-family: $sansSerif;
 }
 
 body {
-    border-top: 10px solid $bannerBlue;
+    background: #f9fafc;
     color: $black;
     padding-top: 50px;
     margin: 0;
@@ -41,6 +42,10 @@ a:hover {
 
 li,p,pre {
     margin: 0 0 14px 0;
+}
+
+.toc-nav {
+    padding-right: 20px;
 }
 
 .nav li {
@@ -70,15 +75,35 @@ h3 {
     margin-bottom: 15px;
 }
 
+.section-label h1 {
+    color: lighten($black, 30);
+    font-size: 18px;
+    font-weight: 300;
+    margin: 20px 0;
+    padding: 0 15px;
+    letter-spacing: 1px;
+}
+
+.github-icon,
+.navbar-nav > li > a.github-icon {
+    line-height: 0;
+}
+
 .navbar,
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
     color: $black;
+    // line-height: 0;
 }
 
 .navbar-default {
-    background-color: $bgBlue;
+    background-color: #ffffff;
     border-color: $borderColor;
+}
+
+.nav-wrap {
+    padding: 0 15px;
+    border-bottom:1px solid #e8e8e8;
 }
 
 .b {
@@ -99,12 +124,12 @@ h3 {
 
 .nav-item {
     color: $black;
-    font-size: 18px;
-    border-bottom: 1px solid $borderColor;
+    font-size: 16px;
+    border-radius: 3px;
 
-    &:hover {
-        color: darken($black, 10);
-        background: $bgBlue;
+    &:hover,
+    &.active {
+        background: #ffffff;
     }
 }
 
@@ -114,6 +139,19 @@ h3 {
 
 .sm {
     font-size: 12px;
+}
+
+.content {
+    padding: 10px 0;
+}
+
+.intro {
+    font-family: $serif;
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid darken($borderColor, 10);
 }
 
 img {
