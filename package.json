@@ -1,12 +1,13 @@
 {
   "private": true,
   "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
     "gulp": "^3.8.8",
     "hasbin": "^1.2.3",
+    "highlight.js": "^9.12.0",
     "laravel-elixir": "^6.0.0-15",
     "laravel-elixir-browsersync-official": "^1.0.0",
-    "yargs": "^4.6.0",
-    "bootstrap-sass": "^3.3.7",
-    "highlight.js": "^9.12.0"
+    "laravel-elixir-webpack-official": "^1.0.10",
+    "yargs": "^4.6.0"
   }
 }

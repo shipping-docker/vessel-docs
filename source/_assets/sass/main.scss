@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600|Roboto+Slab');
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
+@import "node_modules/highlight.js/styles/github";
 
 $bannerBlue: #0089AF;
 $textBlue: #348CB7;
@@ -171,4 +171,10 @@ footer {
     a:hover {
         color: darken(#6fc8f2, 10);
     }
+}
+
+pre {
+    background-color: #f8f8f8;
+    border: 1px solid rgba(51, 69, 109, 0.21);
+    font-size: 14px;
 }

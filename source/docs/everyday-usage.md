@@ -6,6 +6,7 @@ title: Everyday Usage
 
 <p class="intro">Vessel aims to make your everyday development easy, as if you're not using Docker at all. Here's how to run your everyday commands.</p>
 
+<a name="composer" id="composer"></a>
 ## Composer
 
 Often you can run Composer directly as usual, but you can run them within Vessel as well. You can use vessel's `composer` command or `comp` command for short.
@@ -22,6 +23,7 @@ For example, to install the AWS SDK, run:
 ./vessel composer require aws/aws-sdk-php
 ```
 
+<a name="artisan" id="artisan"></a>
 ## Artisan
 
 Artisan commands can be run as usual as well, except when they interact with the cache or database.
@@ -39,6 +41,7 @@ All commands and flags are passed along to Artisan. For example, to run migratio
 ./vessel artisan migrate --seed
 ```
 
+<a name="testing" id="testing"></a>
 ## Testing
 
 We can use Vessel to run our tests as well! This is especially useful if you test with your database or SQLite.
@@ -57,6 +60,7 @@ You can use any commands or flags you would normally use with phpunit as well.
 ./vessel test tests/Unit/SpecificTest.php
 ```
 
+<a name="node" id="node"></a>
 ## NodeJS/NPM/Yarn/Gulp
 
 Vessel also builds a container with NodeJS, NPM, Yarn, and Gulp. This container isn't actively running but can be used whenever you like.
@@ -98,6 +102,7 @@ If you are using Gulp, you can continue to use that as well.
 ./vessel gulp <cmd>
 ```
 
+<a name="multiple-environments" id="multiple-environments"></a>
 ## Multiple Environments
 
 Vessel attempts to bind to port 80 and 3306 on your machine, so you can simply go to `http://localhost` in your browser.
@@ -119,6 +124,7 @@ APP_PORT=8080 MYSQL_PORT=33060 ./vessel start
 
 Then you can view your project at `http://localhost:8080` and access your database locally from port `33060`;
 
+<a name="sequel-pro" id="sequel-pro"></a>
 ## Sequel Pro
 
 Since we bind the MySQL to port `3306`, SequelPro can access the database directly.
@@ -127,12 +133,14 @@ Since we bind the MySQL to port `3306`, SequelPro can access the database direct
 
 The password for user `root` is set by environment variable `DB_PASS` from within the `.env` file.
 
-> The port setting in SequelPro must match the `MYSQL_PORT` environment variable, which defaults to `3306`.
+> The Port setting in SequelPro must match the `MYSQL_PORT` environment variable, which defaults to `3306`.
 
+<!--
+<a name="mysql" id="mysql"></a>
 ## MySQL
 
 You'll likely find yourself needing to export and import MySQL databases.
 
 ### Exporting the Database
-
+-->
 

@@ -38,6 +38,7 @@
                         <a href="/docs/installation" class="nav-item b undec pad @if($page->getFilename() == 'installation') active @endif">Installation</a>
                         <a href="/docs/everyday-usage" class="nav-item b undec pad @if($page->getFilename() == 'everyday-usage') active @endif">Everyday Usage</a>
                         <a href="/docs/installing-docker" class="nav-item b undec pad @if($page->getFilename() == 'installing-docker') active @endif">Installing Docker</a>
+                        <a href="/docs/docker-usage" class="nav-item b undec pad @if($page->getFilename() == 'docker-usage') active @endif">Docker Usage</a>
                         <a href="/docs/learn-more" class="nav-item b undec pad @if($page->getFilename() == 'learn-more') active @endif">🐳 Learn More</a>
                     </nav>
                 </div>
@@ -54,5 +55,6 @@
                 </div>
             </div>
         </footer>
+        <script src="/js/main.js"></script>
     </body>
 </html>
