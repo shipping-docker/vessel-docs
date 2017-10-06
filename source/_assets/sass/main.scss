@@ -46,6 +46,15 @@ li,p,pre {
 
 .toc-nav {
     padding-right: 20px;
+
+    h3 {
+        border-bottom: 1px solid #e5e5e5;
+        font-weight: 300;
+        font-size: 16px;
+        margin-bottom: 10px;
+        padding: 0 10px 10px 10px;
+        letter-spacing: 1px;
+    }
 }
 
 .nav li {
@@ -89,6 +98,14 @@ h3 {
     line-height: 0;
 }
 
+.navbar-header {
+    float: left;
+}
+
+.navbar-nav {
+    float: right;
+}
+
 .navbar,
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav > li > a {
@@ -122,6 +139,10 @@ h3 {
     padding: 10px;
 }
 
+.mtop {
+    margin-top: 50px;
+}
+
 .nav-item {
     color: $black;
     font-size: 16px;
@@ -130,6 +151,10 @@ h3 {
     &:hover,
     &.active {
         background: #ffffff;
+    }
+
+    &.active {
+        padding-left: 20px;
     }
 }
 

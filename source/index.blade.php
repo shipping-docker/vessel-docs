@@ -16,7 +16,7 @@
 
 <h2>Use It:</h2>
 <ul>
-<li><a href="/docs/installation">Installation</a></li>
+<li><a href="/docs/get-started">Getting Started</a></li>
 <li><a href="/docs/everyday-usage">Everyday Usage</a></li>
 </ul>
 

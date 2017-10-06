@@ -1,7 +1,7 @@
 ---
 extends: _layouts.master
 section: body
-title: Installation
+title: Getting Started
 ---
 
 <p class="intro">Vessel is just a small set of files that sets up a local Docker-based dev environment per project. There is nothing to install globally, except Docker itself!</p>
