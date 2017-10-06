@@ -127,20 +127,75 @@ Then you can view your project at `http://localhost:8080` and access your databa
 <a name="sequel-pro" id="sequel-pro"></a>
 ## Sequel Pro
 
-Since we bind the MySQL to port `3306`, SequelPro can access the database directly.
+Since we bind the MySQL to port `3306`, Sequel Pro can access the database directly.
 
 ![sequel pro access](https://s3.amazonaws.com/sfh-assets/vessel-sequel-pro.png)
 
 The password for user `root` is set by environment variable `DB_PASS` from within the `.env` file.
 
-> The Port setting in SequelPro must match the `MYSQL_PORT` environment variable, which defaults to `3306`.
+> The Port setting in Sequel Pro must match the `MYSQL_PORT` environment variable, which defaults to `3306`.
 
-<!--
 <a name="mysql" id="mysql"></a>
 ## MySQL
 
-You'll likely find yourself needing to export and import MySQL databases.
+You'll likely find yourself needing to perform some MySQL operations.
 
 ### Exporting the Database
--->
+
+Vessel has a shortcut to allow you to export the database configured in the `.env` file. This outputs to `stdout`; You'll need to redirect the output to a file on your local file system:
+
+```bash
+# Export the database and save it to example.sql
+./vessel dump > ~/Sites/example/example.sql
+
+# Export the database, gzip it, save it to example.sql.gz
+./vessel dump | gzip > ~/Sites/example/example.sql.gz
+```
+
+### Importing a Database
+
+Importing a `.sql` file is a bit more complex due to how Docker interacts with the file system, but it's still very doable.
+
+> This may more easily be done within Sequel Pro or a similar GUI client, however here's how to do it on the command line.
+
+Let's say we have a local file `exports/example.sql` we want to import into our database named `example`.
+
+```bash
+# This will prompt you for the 
+# mysql root user password
+./vessel run --rm \
+    -v exports:/opt \
+    mysql -h mysql -u root -p example < /opt/example.sql
+```
+
+Here's what this command is doing:
+
+* `./vessel run --rm` - Run a new container, and delete it when the operation is done
+* `-v exports:/opt` - Share the local directory `exports` (which contains `example.sql`) into the container's `/opt` directory
+* `mysql -h mysql -u root -p example < /opt/example.sql` - Run this command within the container. Note the `-h mysql` tells it to connect to the hostname `mysql` which will point to the running mysql server
+    * This command spins up a new server and just runs the mysql client. Technically it's making a remote network connection from this container into the container running mysql server!
+    * The example `/opt/example.sql` file is available to mysql because of the volume sharing we did between the local `exports` diretory and the container's `/opt` directory.
+
+### Other Operations
+
+You can run other operations against the MySQL container as well. Here are some examples.
+
+**MySQL CLI**
+
+```bash
+# Execute against the "mysql" container
+# the command "mysql -u root -p".
+# This will prompt you for the root password to login.
+./vessel exec mysql mysql -u root -p
+
+# This is similar to the above command, but it spins up a new 
+# container rather than executes a command within a running
+# container. This connects to mysql server at hostname `mysql`.
+./vessel run --rm \
+    mysql \
+    mysql -h mysql -u root -p
+```
+
+
+
 
