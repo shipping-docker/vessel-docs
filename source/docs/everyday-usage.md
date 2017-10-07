@@ -196,6 +196,28 @@ You can run other operations against the MySQL container as well. Here are some 
     mysql -h mysql -u root -p
 ```
 
+**App Container CLI**
 
+If you want to "log into" your application controller, you can run `bash` inside of it. This is just like SSHing into the application container, except we're just executing a `bash` process inside the already-running container.
 
+```bash
+./vessel exec app bash
+```
+
+You'll be running as user root, and can poke around the container. Note that any changes you make will **not** persist when you stop and restart Vessel.
+
+You can do the same for some of the other containers as well:
+
+```bash
+# Log into the mysql container
+./vessel exec mysql bash
+```
+
+**Redis CLI**
+
+You can poke around the instance of Redis using `redis-cli`:
+
+```bash
+./vessel exec redis redis-cli
+```
 
