@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        @include('_partials.header-meta')
+        <link rel="icon" href="https://serversforhackers.com/favicon-inverted.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,7 +14,7 @@
         <div class="container">
             <div class="nav-wrap clearfix">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="/">Vessel</a>
+                    <a class="navbar-brand" href="/">🐳 Vessel</a>
                 </div>
                 <div id="navbar">
                     <ul class="nav navbar-nav navbar-right">

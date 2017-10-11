@@ -1,7 +1,4 @@
-1. Logo/Share Image
-2. Favicon
-3. OG Meta
-4. setup/gotchas
-5. customizing docker
-  - Adding images (beanstalkd, pgsql, whatever else)
-6. Running workers
+1. Common Issues (EADDRINUSE, symlinks)
+2. Customizing
+- Adding images (beanstalkd, pgsql, whatever else)
+3. Running Workers
