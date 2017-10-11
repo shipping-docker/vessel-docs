@@ -46,6 +46,7 @@ node                         8.6                 90223b3d894e        5 months ag
 
 This shows the base images used (Node, Redis, MySQL, Ubuntu), and then our two custom images we use for the PHP application controller, and the Node controller, to which we added Git and Yarn.
 
+<a name="rebuild-images" id="rebuild-images"></a>
 ### Rebuilding Vessel Images
 
 If you want to completely rebuild Vessel images (to perhaps pull in the latest version of NodeJS or update the base Ubuntu image), you can delete these images and then have Vessel re-build them. Let's, for example, have Vessel rebuild the Node container:

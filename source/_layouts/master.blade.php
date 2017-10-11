@@ -42,7 +42,8 @@
 
                         <h3 class="mtop">Docker</h3>
                         <a href="/docs/installing-docker" class="nav-item b undec pad @if($page->getFilename() == 'installing-docker') active @endif">Installing Docker</a>
-                        <a href="/docs/docker-usage" class="nav-item b undec pad @if($page->getFilename() == 'docker-usage') active @endif">Docker Usage</a>
+                        <a href="/docs/docker-usage" class="nav-item b undec pad @if($page->getFilename() == 'docker-usage') active @endif">Docker &amp; Vessel</a>
+                        <a href="/docs/linux-permissions" class="nav-item b undec pad @if($page->getFilename() == 'linux-permissions') active @endif">Linux &amp; Permissions</a>
 
                         <h3 class="mtop">Learn More</h3>
                         <a href="/docs/learn-more" class="nav-item b undec pad @if($page->getFilename() == 'learn-more') active @endif">🐳 Free Resources</a>

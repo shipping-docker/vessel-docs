@@ -8,7 +8,7 @@ title: Installing Docker
 
 <p>Vessel currently only works on Macintosh and Linux. It uses a bash script to run Docker commands.</p>
 
-> Window support may come in the future. It will require running Hyper-V.
+> Window support may come in the future. It will require [running Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) which is not supported on Windows 10 **Home** edition.
 
 <table class="table">
     <thead>
@@ -34,3 +34,17 @@ title: Installing Docker
         </tr>
     </tbody>
 </table>
+
+## Linux Users
+
+**First**, the easiest way to install Docker on Linux is the following:
+
+```bash
+curl -fsSL get.docker.com | sudo sh
+```
+
+**Second**, be sure to add group `docker` to your user so you don't need `sudo` to run docker commands:
+
+```bash
+sudo usermod -aG docker your-user
+```
