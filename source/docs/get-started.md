@@ -21,8 +21,8 @@ php artisan vendor:publish --provider="Vessel\VesselServiceProvider"
 
 > Note: You must install Docker to use this project. See [Installing Docker](/docs/installing-docker) for details and supported systems.
 
-<a name="getting-started" id="getting-started"></a>
-## Getting Started
+<a name="initialize" id="initialize"></a>
+## Initialize
 
 Getting started is easy - just initialize vessel and start using it.
 

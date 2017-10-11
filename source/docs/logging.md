@@ -6,6 +6,7 @@ title: Logging
 
 <p class="intro">Docker can take the stdout and stderr output of a process and pipes it out for us to see using its logging mechanism.</p>
 
+<a name="docker-logs" id="docker-logs"></a>
 ## Docker Logs
 
 Our containers are running PHP, Nginx, MySQL, and Redis. These are all outputting basic logging information to Docker's logging mechanism.
@@ -30,6 +31,7 @@ You can `tail` the log files as well to see new output as it is generated:
 ./vessel logs -f redis # tail redis logs
 ```
 
+<a name="laravel-logs" id="laravel-logs"></a>
 ## Laravel Logs
 
 The container should be able to write to your application files. The Laravel log file at `storage/logs/laravel.log` will get written to as usual. You can inspect that file as you usually would.
@@ -43,6 +45,7 @@ However, if you'd like, you can also inspect it from within the app container:
 
 Note the file path of the application will always be `/var/www/html` within the container.
 
+<a name="mysql-logs" id="mysql-logs"></a>
 ## MySQL General Log
 
 By default, MySQL only has it's regular logging enabled (essentially just the error log).

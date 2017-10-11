@@ -7909,6 +7909,11 @@ h3 {
   padding-left: 20px;
 }
 
+.nav-item.active.nav-item-sub {
+  padding-left: 40px;
+  font-size: 14px;
+}
+
 .nav-item-sub {
   padding-left: 30px;
 }

@@ -155,6 +155,11 @@ h3 {
 
     &.active {
         padding-left: 20px;
+
+        &.nav-item-sub {
+            padding-left: 40px;
+            font-size: 14px;
+        }
     }
 }
 

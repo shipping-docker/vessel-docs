@@ -176,11 +176,12 @@ Here's what this command is doing:
     * This command spins up a new server and just runs the mysql client. Technically it's making a remote network connection from this container into the container running mysql server!
     * The example `/opt/example.sql` file is available to mysql because of the volume sharing we did between the local `exports` diretory and the container's `/opt` directory.
 
-### Other Operations
+<a name="container-cli" id="container-cli"></a>
+## Container CLI
 
 You can run other operations against the MySQL container as well. Here are some examples.
 
-**MySQL CLI**
+### MySQL CLI
 
 ```bash
 # Execute against the "mysql" container
@@ -196,7 +197,7 @@ You can run other operations against the MySQL container as well. Here are some 
     mysql -h mysql -u root -p
 ```
 
-**App Container CLI**
+### App Container CLI (Bash)
 
 If you want to "log into" your application controller, you can run `bash` inside of it. This is just like SSHing into the application container, except we're just executing a `bash` process inside the already-running container.
 
@@ -213,7 +214,7 @@ You can do the same for some of the other containers as well:
 ./vessel exec mysql bash
 ```
 
-**Redis CLI**
+### Redis CLI
 
 You can poke around the instance of Redis using `redis-cli`:
 

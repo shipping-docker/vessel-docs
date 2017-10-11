@@ -4,10 +4,11 @@ section: body
 title: Linux &amp; Permissions
 ---
 
-<p class="intro">Unlike on Mac or Windows, Docker on Linux has no layer of virtualization. One neat aspect of this on Linux is that permissions within Docker containers relate to the parent file system. We'll see how here.</p>
+<p class="intro">Unlike on Mac or Windows, Docker on Linux has no layer of virtualization. As a result of this (and how containers work in general), operations run within the Docker container on shared files are affected by the owner and permissions of those files. We'll see how here.</p>
 
-> One way to understand Docker is to think of it more as a tool to run *processes* in a consistent way on any machine, where as virtual servers are a way to run *entire servers* consistently on any machine.
+> One way to understand Docker is to think of it as a tool to run *processes* in a contained space on any machine, where as virtual servers are a way to run *entire servers* in a contained space on any machine.
 
+<a name="linux" id="linux"></a>
 ## Docker and Linux Permissions
 
 Say you have a container running PHP as user `www-data`. That user `www-data` may have a UID (user id) of 33.
@@ -22,6 +23,7 @@ In terms of file permissions, it's just as if Docker is not used at all.
 
 To get around this issue, Vessel changes the UID used to run processes within the PHP and Node containers. Here's how.
 
+<a name="php" id="php"></a>
 ## PHP-FPM
 
 If PHP is run as user `www-data` with a UID of 33, and your editing your code as user `fideloper` with UID 1000, then PHP in the container likely won't be able to write to your code files.
@@ -32,6 +34,7 @@ Vessel detects the UID of your current user (e.g. user `fideloper` on your Linux
 
 The app container then runs PHP-FPM as that user ID, so that PHP and the user owning your code files match. This allows PHP to write to your files as needed.
 
+<a name="node" id="node"></a>
 ## Node
 
 The Node container also creates files in within `node_modules`, and may edit/create the `packages.json` file, the yarn lock file, and your compiled static assets.

@@ -23,7 +23,7 @@ Vessel will also **build** the following Docker images locally on your machine:
 
 Images are used to run containers. You can think of an image as a PHP class, and a container as an instance of a class.
 
-### Find Images
+### Your Local Images
 
 You can view the images you have downloaded or built on your local machine:
 
@@ -44,12 +44,16 @@ redis                        alpine              9d8fa9aa0e5b        2 months ag
 node                         8.6                 90223b3d894e        5 months ago        665MB
 ```
 
-This shows the base images used (Node, Redis, MySQL, Ubuntu), and then our two custom images we use for the PHP application controller, and the Node controller, to which we added Git and Yarn.
+This shows the base images used (Node, Redis, MySQL, Ubuntu), and then our two custom images we use for the PHP and Node containers.
 
 <a name="rebuild-images" id="rebuild-images"></a>
 ### Rebuilding Vessel Images
 
-If you want to completely rebuild Vessel images (to perhaps pull in the latest version of NodeJS or update the base Ubuntu image), you can delete these images and then have Vessel re-build them. Let's, for example, have Vessel rebuild the Node container:
+If you want to completely rebuild Vessel images (to perhaps pull in the latest version of NodeJS or update the base Ubuntu image), you can delete these images and then have Vessel re-build them. 
+
+**Here's a few examples of rebuilding the Node and PHP containers.**
+
+To rebuild the Node container:
 
 ```bash
 # Remove the vessel/node image and its base image
@@ -101,18 +105,34 @@ For example, we can restart our containers (e.g. run `docker-compose restart`) b
 ./vessel restart
 ```
 
-You can see Docker Compose's help menu, including available commands:
+You can see the `docker-compose` help menu like so:
 
 ```bash
 ./vessel help
 ```
+
+### Services
+
+Containers within `docker-compose` are defined as "services". Vessel's `docker-compose.yml` file defines the following services:
+
+* app (the PHP container)
+* mysql
+* redis
+* node
 
 <a name="network" id="network"></a>
 ### Network
 
 The Docker Compose setup creates a network when the containers are spun up. Each container is added to the network automatically, allowing the containers to communicate to eachother.
 
-The container's hostname is the service name, so the mysql container can be reached using hostname `mysql`, and the redis container can be reached using hostname `redis`.
+The container's hostname is the service's name, so the mysql container can be reached using hostname `mysql`, and the redis container can be reached using hostname `redis`.
+
+This is why Laravel's `.env` file has the following hostnames defined after running the `bash vessel init` command:
+
+```bash
+DB_HOST=mysql
+REDIS_HOST=redis
+```
 
 After running `vessel start`, you can see the network created:
 
@@ -125,33 +145,16 @@ docker network ls
 docker network inspect <network-name-from-above>
 ```
 
-<!--
-One example use of this is running `mysqldump` against a mysql container.
-
-```bash
-docker run --rm \
-    --network=example_vessel \
-    mysql:5.7 \
-    mysqldump -h mysql -u root -psecret some_database > some_database.sql
-```
-
-The above runs a new instance of the `mysql` container and runs `mysqldump` inside of it (it does not spin up mysql server). Because it's in the same vessel network as our MySQL instance, we can use the hostname "mysql" (`-h mysql`) to connect to our running MySQL instance.
-
-We never really need to run a command like this, however. The `docker-compose` command makes this easier:
-
-```bash
-docker-compose run --rm \
-    mysql \
-    mysqldump -h mysql -u root -psecret some_database > some_database.sql
-```
--->
+This network is (re)created and destroyed whenever we start and stop Vessel.
 
 <a name="volumes" id="volumes"></a>
 ### Volumes
 
-Both Redis and MySQL images automatically create a Docker volume. This is a volume *mounted to your host machine*, which lets the containers save data in a place that *persists between stopping and restarting the containers*.
+Both Redis and MySQL images automatically create a Docker volume. This is defined in their `Dockerfile` and is not a special feature of Vessel.
 
-This means when your containers are destroyed (which they are during normal Docker operation), you won't lose your important data, such as your databases or redis cache data.
+Each volume is a shared directory *mounted to your host machine*, which lets the containers save data in a place that *persists between stopping and restarting the containers*.
+
+This means when your containers are destroyed (as they are during normal Docker operation), you won't lose your important data, such as your databases or redis cache data.
 
 You can see what volumes are created after starting Vessel:
 
@@ -168,9 +171,9 @@ local               vesselexample_vesselmysql
 local               vesselexample_vesselredis
 ```
 
-This shows two "local" volumes. Their name is built by Docker using a normalized directory name of the project, and the name "vesselmysql" or "vesselredis" appended.
+This shows two "local" volumes. Their name is generated by Docker using a normalized directory name of the project, with the name "vesselmysql" or "vesselredis" appended.
 
-If you want to clean old volumes, or delete your current ones, you can! Just know this permanently deletes your data, including your databases:
+If you want to clean old volumes, or delete your current ones, you can! *Just know this permanently deletes your data, including your databases*:
 
 ```bash
 docker volume rm vesselexample_vesselmysql

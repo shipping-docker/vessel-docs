@@ -37,13 +37,42 @@
                     <nav class="toc-nav">
                         <h3>Usage</h3>
                         <a href="/docs/get-started" class="nav-item b undec pad @if($page->getFilename() == 'get-started') active @endif">Getting Started</a>
+                        @if($page->getFilename() == 'get-started')
+                            <a href="/docs/get-started#install" class="nav-item b undec pad active nav-item-sub">Install</a>
+                            <a href="/docs/get-started#initialize" class="nav-item b undec pad active nav-item-sub">Initialize</a>
+                            <a href="/docs/get-started#start-stop" class="nav-item b undec pad active nav-item-sub">Starting &amp; Stopping</a>
+                        @endif
                         <a href="/docs/everyday-usage" class="nav-item b undec pad @if($page->getFilename() == 'everyday-usage') active @endif">Everyday Usage</a>
+                        @if($page->getFilename() == 'everyday-usage')
+                            <a href="/docs/everyday-usage#composer" class="nav-item b undec pad active nav-item-sub">Composer</a>
+                            <a href="/docs/everyday-usage#artisan" class="nav-item b undec pad active nav-item-sub">Artisan</a>
+                            <a href="/docs/everyday-usage#testing" class="nav-item b undec pad active nav-item-sub">Testing</a>
+                            <a href="/docs/everyday-usage#node" class="nav-item b undec pad active nav-item-sub">NodeJS</a>
+                            <a href="/docs/everyday-usage#multiple-environments" class="nav-item b undec pad active nav-item-sub">Multiple Environments</a>
+                            <a href="/docs/everyday-usage#sequel-pro" class="nav-item b undec pad active nav-item-sub">Sequel Pro</a>
+                            <a href="/docs/everyday-usage#mysql" class="nav-item b undec pad active nav-item-sub">MySQL</a>
+                            <a href="/docs/everyday-usage#container-cli" class="nav-item b undec pad active nav-item-sub">Container CLI</a>
+                        @endif
                         <a href="/docs/logging" class="nav-item b undec pad @if($page->getFilename() == 'logging') active @endif">Logging</a>
+                        @if($page->getFilename() == 'logging')
+                            <a href="/docs/logging#docker-logs" class="nav-item b undec pad active nav-item-sub">Docker Logs</a>
+                            <a href="/docs/logging#laravel-logs" class="nav-item b undec pad active nav-item-sub">Laravel Logs</a>
+                            <a href="/docs/logging#mysql-logs" class="nav-item b undec pad active nav-item-sub">MySQL Logs</a>
+                        @endif
 
                         <h3 class="mtop">Docker</h3>
                         <a href="/docs/installing-docker" class="nav-item b undec pad @if($page->getFilename() == 'installing-docker') active @endif">Installing Docker</a>
                         <a href="/docs/docker-usage" class="nav-item b undec pad @if($page->getFilename() == 'docker-usage') active @endif">Docker &amp; Vessel</a>
+                        @if($page->getFilename() == 'docker-usage')
+                            <a href="/docs/docker-usage#images" class="nav-item b undec pad active nav-item-sub">Images</a>
+                            <a href="/docs/docker-usage#docker-compose" class="nav-item b undec pad active nav-item-sub">Docker Compose</a>
+                        @endif
                         <a href="/docs/linux-permissions" class="nav-item b undec pad @if($page->getFilename() == 'linux-permissions') active @endif">Linux &amp; Permissions</a>
+                        @if($page->getFilename() == 'linux-permissions')
+                            <a href="/docs/linux-permissions#linux" class="nav-item b undec pad active nav-item-sub">Docker &amp; Linux</a>
+                            <a href="/docs/linux-permissions#php" class="nav-item b undec pad active nav-item-sub">PHP-FPM</a>
+                            <a href="/docs/linux-permissions#node" class="nav-item b undec pad active nav-item-sub">Node</a>
+                        @endif
 
                         <h3 class="mtop">Learn More</h3>
                         <a href="/docs/learn-more" class="nav-item b undec pad @if($page->getFilename() == 'learn-more') active @endif">🐳 Free Resources</a>
