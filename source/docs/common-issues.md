@@ -28,9 +28,19 @@ For either case, you can either turn off the other program also listening on por
 <a name="symlinks" id="symlinks"></a>
 ## Symlinks
 
-If your project files use symlinks to point to other locations on your disk drive, Docker will likely not be able to follow those symlinks as the location will not exist within the container (which can only view files within the container).
+If your project files use symlinks to point to other locations outside of the project, Docker will likely not be able to follow those symlinks as the location will not exist within the container.
 
-There's no magic work-around to this. If your symlink points to other files within the project, you can create the symlink within the container so the container sees the correct path:
+It's possible for a Symlink to point to a file that *does* exist within your project but at a file path the container doesn't understand.
+
+For example, a symlink like the following:
+
+```
+/Users/fideloper/foo-project/vendor/fideloper -> /Users/fideloper/foo-project/packages/fideloper
+```
+
+...will not work within a container, as the container sees project files within `/var/www/html/`. The file path `/Users/fideloper/foo-project` will not exist for code run inside of the container.
+
+If your symlink points to other files *within* the project, you can create the symlink inside the container so it sees a path it understands:
 
 ```bash
 # Log into the container
@@ -41,7 +51,42 @@ There's no magic work-around to this. If your symlink points to other files with
 > ln -s /var/www/html/some-dir/real-file.ext /var/www/html/symlinked.ext
 ```
 
-If your symlink points to files outside of what the container has available to it, then the container simply will not be able to see those files. You may want to copy those files over to your project (or use rsync to sync changes over to your project files).
+If your symlink points to files outside of what the container has available to it, then the container simply will not be able to see those files. 
+
+You may want to copy those files over to your project (or use `rsync` to sync changes over to your project files).
+
+Alternatively, you can adjust the `docker-compose.yml` file to share additional directories from your host filesystem:
+
+```yaml
+# Portion of file `docker-compose.yml`
+services:
+  app:
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    image: vessel/app
+    ports:
+     - "${APP_PORT}:80"
+    environment:
+      CONTAINER_ENV: "${APP_ENV}"
+      XDEBUG_HOST: "${XDEBUG_HOST}"
+      WWWUSER: "${WWWUSER}"
+    volumes:
+     - .:/var/www/html
+     - /path/to/additional/directory:/opt
+    networks:
+     - vessel
+```
+
+If you then share additional directories on your host file system to the `/opt` directory of your app container, you can then create symlinks between the two:
+
+```bash
+# Log into the container
+./vessel exec app bash
+
+# Create symlink from file in /opt directory to the project files
+> ln -s /opt/foo-file.ext /var/www/html/foo-file.ext
+```
 
 <a name="mysql-password" id="mysql-password"></a>
 ## MySQL Access Denied
