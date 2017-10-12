@@ -1,4 +1,4 @@
-1. Common Issues (EADDRINUSE, symlinks)
-2. Customizing
-- Adding images (beanstalkd, pgsql, whatever else)
-3. Running Workers
+1. Customizing
+    - Adding images (beanstalkd, pgsql, whatever else)
+2. Running Workers
+3. Updating / Resetting Vessel
