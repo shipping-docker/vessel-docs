@@ -41,6 +41,38 @@ All commands and flags are passed along to Artisan. For example, to run migratio
 ./vessel artisan migrate --seed
 ```
 
+<a name="queues" id="queues"></a>
+## Queue Workers
+
+Queue workers are just another `artisan` command. You can run them like any other artisan commands ([Laravel queue worker docs here](https://laravel.com/docs/5.5/queues#running-the-queue-worker)):
+
+```bash
+# Just like from Laravel docs
+./vessel artisan queue:work
+
+# Run a single job
+./vessel artisan queue:work --once
+
+# Give jobs 3 tries before deleting/marking as failed
+# Sleep 3 seconds before polling for more jobs
+#   after no more available jobs are found
+./vessel artisan queue:work --tries=3 --sleep=3
+```
+
+To stop a queue worker, you can use `ctrl+c` as usual. 
+
+However, if `ctrl+c` doesn't work (which can happen if you start a worker before running `./vessel start`), you can find the ID of the running container and "kill" it:
+
+```bash
+# Find the running instance of the vessel/app container,
+# likely is the top listed container
+docker ps
+
+# Get the container ID and "kill" it
+# Here we kill the container with ID 0770015f9257
+docker kill 0770015f9257
+```
+
 <a name="testing" id="testing"></a>
 ## Testing
 

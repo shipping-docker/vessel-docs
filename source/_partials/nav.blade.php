@@ -9,6 +9,7 @@
 @if($page->getFilename() == 'everyday-usage')
     <a href="/docs/everyday-usage#composer" class="nav-item b undec pad active nav-item-sub">Composer</a>
     <a href="/docs/everyday-usage#artisan" class="nav-item b undec pad active nav-item-sub">Artisan</a>
+    <a href="/docs/everyday-usage#queues" class="nav-item b undec pad active nav-item-sub">Queue Workers</a>
     <a href="/docs/everyday-usage#testing" class="nav-item b undec pad active nav-item-sub">Testing</a>
     <a href="/docs/everyday-usage#node" class="nav-item b undec pad active nav-item-sub">NodeJS</a>
     <a href="/docs/everyday-usage#multiple-environments" class="nav-item b undec pad active nav-item-sub">Multiple Environments</a>
