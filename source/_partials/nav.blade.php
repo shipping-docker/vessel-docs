@@ -23,6 +23,11 @@
     <a href="/docs/logging#laravel-logs" class="nav-item b undec pad active nav-item-sub">Laravel Logs</a>
     <a href="/docs/logging#mysql-logs" class="nav-item b undec pad active nav-item-sub">MySQL Logs</a>
 @endif
+<a href="/docs/updating-resetting" class="nav-item b undec pad @if($page->getFilename() == 'updating-resetting') active @endif">Updating &amp; Resetting</a>
+@if($page->getFilename() == 'updating-resetting')
+    <a href="/docs/updating-resetting#updating" class="nav-item b undec pad active nav-item-sub">Updating Vessel</a>
+    <a href="/docs/updating-resetting#resetting" class="nav-item b undec pad active nav-item-sub">Resetting Vessel</a>
+@endif
 <a href="/docs/common-issues" class="nav-item b undec pad @if($page->getFilename() == 'common-issues') active @endif">Common Issues</a>
 @if($page->getFilename() == 'common-issues')
     <a href="/docs/common-issues#eaddrinuse" class="nav-item b undec pad active nav-item-sub">EADDRINUSE</a>
