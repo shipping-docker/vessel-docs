@@ -7,7 +7,7 @@ title: Updating and Resetting
 <p class="intro">If you want to update Vessel from an older version, or burn it all down and start over, read on here!</p>
 
 <a name="updating" id="updating"></a>
-## Updating
+## Updating Vessel
 
 Updating Vessel involves a steps around getting the latest pubslished assets from the Vessel package, and rebuilding your containers if needed.
 
