@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600|Roboto+Slab');
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "node_modules/highlight.js/styles/github";
 
@@ -6,7 +6,7 @@ $bannerBlue: #0089AF;
 $textBlue: #348CB7;
 $black: #3b4c52;
 $grey: #787878;
-$sansSerif: 'Roboto', sans-serif;
+$sansSerif: 'Raleway', sans-serif;
 $serif: 'Roboto Slab', serif;
 $yellow: #EDCA7C;
 $yellowText: #5D5432;
@@ -62,7 +62,7 @@ li,p,pre {
 }
 
 h1,h2,h3 {
-    font-weight: 400;
+    font-weight: 500;
 }
 
 h1 {
@@ -73,7 +73,7 @@ h1 {
 
 h2 {
     font-size: 30px;
-    margin-top: 40px;
+    margin-top: 60px;
     margin-bottom: 20px;
     border-bottom: 1px solid $borderColor;
     padding-bottom: 16px;
@@ -82,6 +82,10 @@ h2 {
 h3 {
     margin-top: 30px;
     margin-bottom: 15px;
+}
+
+li, p, pre {
+    margin-bottom: 18px;
 }
 
 .section-label h1 {
@@ -144,12 +148,14 @@ h3 {
 }
 
 .nav-item {
-    color: $black;
+    color: #80939a;
     font-size: 16px;
+    font-weight: 500;
     border-radius: 3px;
 
     &:hover,
     &.active {
+        color: $black;
         background: #ffffff;
     }
 
@@ -159,6 +165,7 @@ h3 {
         &.nav-item-sub {
             padding-left: 40px;
             font-size: 14px;
+            font-weight: 400;
         }
     }
 }
@@ -172,7 +179,7 @@ h3 {
 }
 
 .content {
-    padding: 10px 0;
+    padding: 10px 15px 10px 15px;
 }
 
 .intro {
