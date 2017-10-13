@@ -47,6 +47,16 @@ Head to `http://localhost` in your browser and see your Laravel site!
 > 
 > Note that the EADDRINUSE error is often last in the error output reported from Docker.
 
+<a name="get-started" id="get-started"></a>
+
+## See it in action
+
+Here's a quick video on installing and getting started with Vessel, with just a tad more explanation.
+
+<div class='embed-container'>
+    <iframe src="https://player.vimeo.com/video/238099207" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+
 <a name="start-stop" id="start-stop"></a>
 ## Starting and Stopping Vessel
 
