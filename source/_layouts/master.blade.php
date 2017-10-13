@@ -54,5 +54,14 @@
             </div>
         </footer>
         <script src="/js/main.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20914866-11"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-20914866-11');
+        </script>
+
     </body>
 </html>
