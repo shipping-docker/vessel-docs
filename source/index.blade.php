@@ -1,7 +1,7 @@
 @extends('_layouts.master')
 
 @section('body')
-<p class="intro">Vessel is a tiny Docker environment that aims to be easy to use with your Laravel applications.</p>
+<p class="intro">Simple Docker development environments for Laravel.</p>
 
 <h2>Use It:</h2>
 <ul>
