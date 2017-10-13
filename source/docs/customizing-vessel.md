@@ -10,6 +10,7 @@ If you're familiar with Docker and Docker Compose, you can basically do anything
 
 To give you an idea of what's possible, here are some example customizations.
 
+<a name="pgsql" id="pgsql"></a>
 ## Using PostgreSQL over MySQL
 
 If you prefer PostgreSQL instead of MySQL, you can change the database container to use the [official PostreSQL image](https://hub.docker.com/_/postgres/).
@@ -91,7 +92,7 @@ I've omitted the Redis volume within the `volumes` section, but that should be t
 
 > **Note**: If you created an environment with MySQL before switching to PgSQL, the volume may have data in it already. If there is data in the volume `vesselmysql` or `vesselpgsql`, then a new database will fail to be initialized.
 
-
+<a name="beanstalkd" id="beanstalkd"></a>
 ## Add Beanstalkd for Queues
 
 Vessel doesn't have any queue technology out of the box (the database driver is great for that use case!).

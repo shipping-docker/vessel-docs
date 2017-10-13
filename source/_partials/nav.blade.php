@@ -29,6 +29,10 @@
     <a href="/docs/updating-resetting#resetting" class="nav-item b undec pad active nav-item-sub">Resetting Vessel</a>
 @endif
 <a href="/docs/customizing-vessel" class="nav-item b undec pad @if($page->getFilename() == 'customizing-vessel') active @endif">Customizing Vessel</a>
+@if($page->getFilename() == 'customizing-vessel')
+    <a href="/docs/customizing-vessel#pgsql" class="nav-item b undec pad active nav-item-sub">Using PgSQL</a>
+    <a href="/docs/customizing-vessel#beanstalkd" class="nav-item b undec pad active nav-item-sub">Adding Beanstalkd</a>
+@endif
 <a href="/docs/common-issues" class="nav-item b undec pad @if($page->getFilename() == 'common-issues') active @endif">Common Issues</a>
 @if($page->getFilename() == 'common-issues')
     <a href="/docs/common-issues#eaddrinuse" class="nav-item b undec pad active nav-item-sub">EADDRINUSE</a>
