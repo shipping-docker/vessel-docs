@@ -154,7 +154,16 @@ Or when starting Vessel:
 APP_PORT=8080 MYSQL_PORT=33060 ./vessel start
 ```
 
-Then you can view your project at `http://localhost:8080` and access your database locally from port `33060`;
+Then you can view your project at `http://localhost:8080` and access your database locally from port `33060`.
+
+> Note that changing `APP_PORT` and `MYSQL_PORT` does not change the fact that Nginx listens on port 90 and MySQL listens on port 3306. Instead, it only changes what port is ***forwarded*** from your host machine into the containers.
+>
+> Within the containers (which are all within a Docker network), software and containers communicate to eachother over the default ports. For example, your PHP code will connect to MySQL on port `3306` no matter what (there's no reason to change the `DB_PORT` env var).
+>
+> This port setup is merely convenience to communicate into your containers from the outside world:
+> 
+> 1. `APP_PORT` is set so you can connect to the app container from your browser
+> 2. `MYSQL_PORT` is set so you can connect to your MySQL container from a client such as Sequel Pro
 
 <a name="sequel-pro" id="sequel-pro"></a>
 ## Sequel Pro
