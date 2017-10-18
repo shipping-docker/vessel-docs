@@ -6,6 +6,8 @@ title: Getting Started
 
 <p class="intro">Vessel is just a small set of files that sets up a local Docker-based dev environment per project. There is nothing to install globally, except Docker itself!</p>
 
+> If you don't have PHP 7+ installed on your host machine, see the docs on [I don't have PHP 7 yet (catch-22)](/docs/common-issues#catch22) for a solution.
+
 <a name="install" id="install"></a>
 ## Install
 

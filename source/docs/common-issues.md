@@ -125,3 +125,52 @@ DB_PASSWORD=secret
 # Start the containers back up
 ./vessel start
 ```
+
+<a name="catch22" id="catch22"></a>
+
+## I don't have PHP 7 yet (catch-22)
+
+Starting a new Laravel project, or just pulling in certain packages, requires PHP7+. If you don't have PHP installed, or don't have PHP 7+, you'll run into an issue where you can't create a new Laravel project, or may not be able to add Vessel into your current project.
+
+In this case, you won't have Vessel (which has PHP 7+) but need PHP 7 to get Laravel and/or Vessel.
+
+In this case, you can use a [pre-built Docker container](https://hub.docker.com/r/shippingdocker/php-composer/) setup for just this use case. It will allow you to run PHP and `composer` commands using PHP 7.
+
+Here's how:
+
+```bash
+# Head to whatever directory you with to create new project in
+cd ~/Path/To/Projects
+
+# Create a new laravel project (or just `cd` into your existing project if you have one)
+docker run --rm -it \
+    -v $(pwd):/opt \
+    -w /opt shippingdocker/php-composer:latest \
+    composer create-project laravel/laravel vessel-php-composer
+
+# Get Vessel:
+docker run --rm -it \
+    -v $(pwd):/opt \
+    -w /opt shippingdocker/php-composer:latest \
+    composer require shipping-docker/vessel
+
+# Publish Vessel assets
+docker run --rm -it \
+    -v $(pwd):/opt \
+    -w /opt shippingdocker/php-composer:latest \
+    php artisan vendor:publish --provider="Vessel\VesselServiceProvider"
+
+# Then initialize and run Vessel as normal:
+bash vessel init
+./vessel start
+./vessel composer require foo/bar
+```
+
+You can delete the `php-composer` image when you're finished with it:
+
+```bash
+docker image rm shippingdocker/php-composer:latest
+```
+
+
+
