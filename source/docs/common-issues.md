@@ -132,7 +132,7 @@ DB_PASSWORD=secret
 
 Starting a new Laravel project, or just pulling in certain packages, requires PHP7+. If you don't have PHP installed, or don't have PHP 7+, you'll run into an issue where you can't create a new Laravel project, or may not be able to add Vessel into your current project.
 
-In this case, you won't have Vessel (which has PHP 7+) but need PHP 7 to get Laravel and/or Vessel.
+In this case, we have a catch-22; You won't yet have Vessel (which has PHP 7+) but need PHP 7+ to get Laravel and/or Vessel.
 
 In this case, you can use a [pre-built Docker container](https://hub.docker.com/r/shippingdocker/php-composer/) setup for just this use case. It will allow you to run PHP and `composer` commands using PHP 7.
 
