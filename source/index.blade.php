@@ -16,7 +16,7 @@
 
 <p>I developed this workflow from my own daily use, and even <a href="https://serversforhackers.com/dockerized-app" title="docker workflow">created a free video series about it</a>. However, I wanted to make something more official that everyone could easily use.</p>
 
-<p>This goal of this project is to be as simple simple as possible while also giving people a glimpse into how Docker works. I hope you find Docker a really neat way to compartmentalize your projects, and make hacking on projects (on any machine) a breeze.</p>
+<p>This goal of this project is to be as simple as possible while also giving people a glimpse into how Docker works. I hope you find Docker a really neat way to compartmentalize your projects, and make hacking on projects (on any machine) a breeze.</p>
 
 <h2>What's Included</h2>
 
