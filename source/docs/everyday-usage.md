@@ -172,7 +172,7 @@ Since we bind the MySQL to port `3306`, Sequel Pro can access the database direc
 
 ![sequel pro access](https://s3.amazonaws.com/sfh-assets/vessel-sequel-pro.png)
 
-The password for user `root` is set by environment variable `DB_PASS` from within the `.env` file.
+The password for user `root` is set by environment variable `DB_PASSWORD` from within the `.env` file.
 
 > The Port setting in Sequel Pro must match the `MYSQL_PORT` environment variable, which defaults to `3306`.
 
