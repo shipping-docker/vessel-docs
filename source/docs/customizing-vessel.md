@@ -23,7 +23,7 @@ DB_HOST=pgsql
 DB_PORT=5432
 ```
 
-This will prepare Laravel to connet to a PostgreSQL database, listening on port 5432.
+This will prepare Laravel to connect to a PostgreSQL database, listening on port 5432.
 
 Then we'll edit the `docker-compose.yml` file to swap MySQL out with PostgreSQL.
 
