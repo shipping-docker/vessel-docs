@@ -19,11 +19,11 @@ You can simply update all your packages to the latest:
 ./vessel composer update
 ```
 
-If there's a new major version of Vessel, you can remove the old and install the new. For example, to update from Vessel 1.1 to 1.2:
+If there's a new major version of Vessel, you can remove the old and install the new. For example, to update from Vessel 1.x to 2.0:
 
 ```bash
-./vessel composer remove shipping-docker/vessel:~1.1
-./vessel composer require shipping-docker/vessel:~1.2
+./vessel composer remove shipping-docker/vessel
+./vessel composer require shipping-docker/vessel:~2.0
 ```
 
 **2. Publish Latest Vessel Files**
