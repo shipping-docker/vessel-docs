@@ -42,7 +42,7 @@ Then you can re-publish the new Vessel files:
 ```bash
 # Note vessel isn't available to use here at this point
 php artisan vendor:publish --provider="Vessel\VesselServiceProvider"
-vessel init
+bash vessel init
 ```
 
 > **Note**: If you have customized Vessel files, you'll need to save those customizations and re-implement them into the latest Vessel files.
