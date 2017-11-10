@@ -127,7 +127,6 @@ DB_PASSWORD=secret
 ```
 
 <a name="catch22" id="catch22"></a>
-
 ## I don't have PHP 7 yet (catch-22)
 
 Starting a new Laravel project, or just pulling in certain packages, requires PHP7+. If you don't have PHP installed, or don't have PHP 7+, you'll run into an issue where you can't create a new Laravel project, or may not be able to add Vessel into your current project.

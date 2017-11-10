@@ -38,6 +38,7 @@
     <a href="/docs/common-issues#eaddrinuse" class="nav-item b undec pad active nav-item-sub">EADDRINUSE</a>
     <a href="/docs/common-issues#symlinks" class="nav-item b undec pad active nav-item-sub">Symlinks</a>
     <a href="/docs/common-issues#mysql-password" class="nav-item b undec pad active nav-item-sub">Empty MySQL Password</a>
+    <a href="/docs/common-issues#catch22" class="nav-item b undec pad active nav-item-sub">No PHP7 or Composer</a>
 @endif
 
 <h3 class="mtop">Docker</h3>
