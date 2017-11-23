@@ -145,7 +145,10 @@ cd ~/Path/To/Projects
 docker run --rm -it \
     -v $(pwd):/opt \
     -w /opt shippingdocker/php-composer:latest \
-    composer create-project laravel/laravel vessel-php-composer
+    composer create-project laravel/laravel my-app
+
+# Get into new app directory
+cd my-app
 
 # Get Vessel:
 docker run --rm -it \
@@ -159,6 +162,12 @@ docker run --rm -it \
     -w /opt shippingdocker/php-composer:latest \
     php artisan vendor:publish --provider="Vessel\VesselServiceProvider"
 
+# If you're a linux user,
+# your files may be owned by user root
+# Run this if so,
+ls -lah # Check owner of files in current dir
+sudo chown -R $USER: . # Change owner:group if needed
+
 # Then initialize and run Vessel as normal:
 bash vessel init
 ./vessel start
@@ -170,6 +179,3 @@ You can delete the `php-composer` image when you're finished with it:
 ```bash
 docker image rm shippingdocker/php-composer:latest
 ```
-
-
-
