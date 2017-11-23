@@ -162,9 +162,9 @@ docker run --rm -it \
     -w /opt shippingdocker/php-composer:latest \
     php artisan vendor:publish --provider="Vessel\VesselServiceProvider"
 
-# If you're a linux user,
-# your files may be owned by user root
-# Run this if so,
+# If you're a linux user, your files
+# may be owned by user root
+# Run the following if so:
 ls -lah # Check owner of files in current dir
 sudo chown -R $USER: . # Change owner:group if needed
 
