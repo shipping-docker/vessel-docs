@@ -13,7 +13,7 @@ title: Getting Started
 
 To install Vessel into any given Laravel project, simply require it via Composer:
 
-``` bash
+```bash
 composer require shipping-docker/vessel
 ```
 
@@ -31,7 +31,7 @@ If using Laravel <=5.4, register Vessel's service provider (Laravel >=5.5 does t
 
 Finally, publish the `vessel` command and Docker files:
 
-``` bash
+```bash
 php artisan vendor:publish --provider="Vessel\VesselServiceProvider"
 ```
 
