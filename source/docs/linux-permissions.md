@@ -39,7 +39,7 @@ The app container then runs PHP-FPM as that user ID, so that PHP and the user ow
 
 The Node container also creates files in within `node_modules`, and may edit/create the `packages.json` file, the yarn lock file, and your compiled static assets.
 
-To prevent these generated files from being created as user `rot` (the default user used within any container), we run the NodeJS container as user `node` (as [documented as a best practice](https://github.com/nodejs/docker-node/blob/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/docs/BestPractices.md#non-root-user) by the containers creators).
+To prevent these generated files from being created as user `root` (the default user used within any container), we run the NodeJS container as user `node` (as [documented as a best practice](https://github.com/nodejs/docker-node/blob/c37d5e87fa6d46c0e387f73161b056bbf90b83aa/docs/BestPractices.md#non-root-user) by the containers creators).
 
 However, Vessel changes user node's UID to match your current user (e.g. user `fideloper`). Since the UID of node matches our current user's UID, the files get created on your host machines file system as the correct user name!
 
