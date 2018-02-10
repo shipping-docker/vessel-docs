@@ -92,6 +92,19 @@ You can use any commands or flags you would normally use with phpunit as well.
 ./vessel test tests/Unit/SpecificTest.php
 ```
 
+Vessel also supports Browser Tests (Laravel Dusk). In order to run them you need to add the `--no-sandbox` flag to the `ChromeOptions` in your `DuskTestCase.php`:
+
+```php
+$options = (new ChromeOptions())->addArguments([
+    '--disable-gpu',
+    '--headless',
+    '--no-sandbox',
+]);
+```
+
+After adding the flag you can run Laravel Dusk by executing `./vessel artisan dusk`.
+
+
 <a name="node" id="node"></a>
 ## NodeJS/NPM/Yarn/Gulp
 
