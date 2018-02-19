@@ -16,7 +16,7 @@ The first time you start up an application with Vessel, it will download the fol
 
 Vessel will also **build** the following Docker images locally on your machine:
 
-* PHP 7.1 (using <a href="https://hub.docker.com/_/ubuntu/">Ubuntu 16.04</a> as a base)
+* PHP 7.2 (using <a href="https://hub.docker.com/_/ubuntu/">Ubuntu 16.04</a> as a base)
     - [Dockerfile used](https://github.com/shipping-docker/vessel/blob/master/docker-files/docker/app/Dockerfile) to build it
 * NodeJS (<a href="https://hub.docker.com/_/node/">latest</a>), with NPM, Yarn, and Gulp
     - [Dockerfile used](https://github.com/shipping-docker/vessel/blob/master/docker-files/docker/node/Dockerfile) to build it
