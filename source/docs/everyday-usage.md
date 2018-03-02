@@ -206,16 +206,18 @@ Let's say we have a local file `exports/example.sql` we want to import into our 
 # mysql root user password
 ./vessel run --rm \
     -v exports:/opt \
-    mysql -h mysql -u root -p example < /opt/example.sql
+    sh -c "mysql -h mysql -u root -p example < /opt/example.sql"
 ```
 
 Here's what this command is doing:
 
 * `./vessel run --rm` - Run a new container, and delete it when the operation is done
 * `-v exports:/opt` - Share the local directory `exports` (which contains `example.sql`) into the container's `/opt` directory
-* `mysql -h mysql -u root -p example < /opt/example.sql` - Run this command within the container. Note the `-h mysql` tells it to connect to the hostname `mysql` which will point to the running mysql server
+* `sh -c "mysql -h mysql -u root -p example < /opt/example.sql"` - Run this command within the container. Note the `-h mysql` tells it to connect to the hostname `mysql` which will point to the running mysql server
     * This command spins up a new server and just runs the mysql client. Technically it's making a remote network connection from this container into the container running mysql server!
-    * The example `/opt/example.sql` file is available to mysql because of the volume sharing we did between the local `exports` diretory and the container's `/opt` directory.
+    * The example `/opt/example.sql` file is available to mysql because of the volume sharing we did between the local `exports` directory and the container's `/opt` directory.
+
+> We use `sh -c`, which lets us run a command as a string. If we did not, then the part `< /opt/example.sql` would attempt to run against our host computer instead of in the container.
 
 <a name="container-cli" id="container-cli"></a>
 ## Container CLI
