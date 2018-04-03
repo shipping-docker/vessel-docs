@@ -30,6 +30,7 @@
 @endif
 <a href="/docs/customizing-vessel" class="nav-item b undec pad @if($page->getFilename() == 'customizing-vessel') active @endif">Customizing Vessel</a>
 @if($page->getFilename() == 'customizing-vessel')
+    <a href="/docs/customizing-vessel#network" class="nav-item b undec pad active nav-item-sub">Connecting Two Installs</a>
     <a href="/docs/customizing-vessel#pgsql" class="nav-item b undec pad active nav-item-sub">Using PgSQL</a>
     <a href="/docs/customizing-vessel#beanstalkd" class="nav-item b undec pad active nav-item-sub">Adding Beanstalkd</a>
 @endif
