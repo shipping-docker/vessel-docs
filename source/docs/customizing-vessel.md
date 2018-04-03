@@ -10,6 +10,61 @@ If you're familiar with Docker and Docker Compose, you can basically do anything
 
 To give you an idea of what's possible, here are some example customizations.
 
+<a name="network" id="network"></a>
+## Connecting Two Installs
+
+Sometimes you may have a Vessel setup for two applications. You can have multiple Vessel's running as described in the [Multiple Environments](https://vessel.shippingdocker.com/docs/everyday-usage/#multiple-environments) section.
+
+However, what if your two Vessels need to speak to eachother? If you have one running on port 8080 (and use `http://localhost:8080` in the browser to view it), you may try to have your other Vessel reach it using `localhost:8080`. [However, this won't work](https://serversforhackers.com/c/dckr-localhost)! Only your host machine can use `localhost:8080`. That's a special port-forwarding setup between the host machine and your Vessel environment.
+
+For the Docker containers to speak to eachother directly, they need to be connected over a Docker network. So, to make this work, we need to manually create a new network:
+
+```bash
+# Name the network whatever you want
+# here, I named it "overwatch"
+docker network create overwatch
+```
+
+So we have a new network which is NOT managed by `docker-compose`. Instead, it exists outside of our projects. We can use this network to connect two or more Vessel's being used on our host machine.
+
+To use that network, we need to add our two (or more) projects' `app` containers into this new network:
+
+```yml
+# Some things here omitted
+# We just need to add our app service
+# into the "overwatch" network
+services:
+  app:
+    networks:
+      overwatch:
+        aliases:
+          - someapp
+      sdnet:
+
+# And then, in the networks section
+# we define the overwatch network as
+# an external network
+networks:
+  overwatch:
+    external:
+      name: overwatch
+```
+
+> Note that I show this example once, but I'm assuming you'll make these changes in BOTH of your Vessel's. Make sure to make a *unique* network alias in both/all of your project's `docker-compose.yml` files.
+
+We did three things here:
+
+1. The `app` service network gets added to `sdnet` as usual
+  - **Note**: The syntax there of `sdnet:`, with the colon, is intentional/needed to be valid yaml
+2. The `app` service network gets added to our new network `overwatch`, and we give it an alias of `someapp`. The alias `someapp` becomes the network name of that app container within the `overwatch` network.
+3. We defined the `overwatch` network as an external network - docker-compose will NOT try to manage that network.
+
+So, if you do this in both of your `docker-compose.yml` files for both of your Vessel's, they can then communicate with eachother.
+
+**If we aliased both Vessel's `app` container to `someapp` and `fooapp`, then `fooapp` can send requests to `http://someapp` and `someapp` can send requests to `http://fooapp` (no ports necessary, Nginx is listening on port 80 in both cases inside of the containers).**
+
+> If you're confused and want to learn more, definitely consider picking up the [Shipping Docker course](https://serversforhackers.com/shipping-docker), which goes into Docker networking in a bit more detail.
+
 <a name="pgsql" id="pgsql"></a>
 ## Using PostgreSQL over MySQL
 
