@@ -8,17 +8,21 @@ if [ $# -gt 0 ];then
         docker run -it --rm \
             -v $(pwd):/opt \
             -w /opt \
-            sd-static/app \
+            vessel/app \
             composer "$@"
 
     # If "npm" is used, run npm
     # from our node container
+
+    # TO INSTALL FOR THIS PROJECT, RUN:
+    # ./develop npm install --unsafe-perm=true
+
     elif [ "$1" == "npm" ]; then
         shift 1
         docker run -it --rm \
             -v $(pwd):/opt \
             -w /opt \
-            sd-static/app \
+            vessel/node \
             npm "$@"
 
     # If "yarn" is used, run yarn
@@ -28,7 +32,7 @@ if [ $# -gt 0 ];then
         docker run -it --rm \
             -v $(pwd):/opt \
             -w /opt \
-            sd-static/app \
+            vessel/node \
             yarn "$@"
 
     # If "gulp" is used, run gulp
@@ -38,7 +42,7 @@ if [ $# -gt 0 ];then
         docker run -it --rm \
             -v $(pwd):/opt \
             -w /opt \
-            sd-static/app \
+            vessel/node \
             ./node_modules/.bin/gulp "$@"
     fi
 fi

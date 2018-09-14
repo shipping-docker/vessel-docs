@@ -26,9 +26,9 @@ For example, to install the AWS SDK, run:
 <a name="artisan" id="artisan"></a>
 ## Artisan
 
-Artisan commands can be run as usual as well, except when they interact with the cache or database.
+Artisan commands can be run directly on your host machine as well, except when they interact with the cache or database.
 
-In those cases, we can use Vessel as well to run `artisan` or `art` for short.
+In those cases, we'll need Vessel to run the artisan commands. We can use `artisan` or `art` for short.
 
 ```bash
 ./vessel artisan <cmd>
@@ -40,6 +40,26 @@ All commands and flags are passed along to Artisan. For example, to run migratio
 ```bash
 ./vessel artisan migrate --seed
 ```
+
+<a name="php" id="php"></a>
+## PHP
+
+Ad-hoc PHP commands can be run within Vessel.
+
+Just use the `php` command:
+
+```bash
+# List php CLI modules:
+./vessel php -m
+
+# Echo "hello world"
+./vessel php -r "echo 'hello world';"
+
+# Use artisan, because why not?
+./vessel php artisan list
+```
+
+All commands and flags are passed along to PHP. Additionally, all commands are run relative to your project root directory (the same directory that your Laravel application resides).
 
 <a name="queues" id="queues"></a>
 ## Queue Workers
@@ -96,6 +116,15 @@ You can use any commands or flags you would normally use with phpunit as well.
 ## NodeJS/NPM/Yarn/Gulp
 
 Vessel also builds a container with NodeJS, NPM, Yarn, and Gulp. This container isn't actively running but can be used whenever you like.
+
+### Node
+
+Any Node command can be run, such as `node index.js`.
+
+```bash
+# Run nodejs
+./vessel node <cmd>
+```
 
 ### NPM
 
@@ -181,6 +210,17 @@ The password for user `root` is set by environment variable `DB_PASSWORD` from w
 
 You'll likely find yourself needing to perform some MySQL operations.
 
+### Log into MySQL
+
+Vessel has a shortcut to allow you to log into MySQL. This will also run `use your_database`, where "your_database" is the database set by your `DB_DATABASE` environment variable.
+
+> This requires the MySQL container to be running.
+
+```bash
+# Log into mysql
+./vessel mysql
+```
+
 ### Exporting the Database
 
 Vessel has a shortcut to allow you to export the database configured in the `.env` file. This outputs to `stdout`; You'll need to redirect the output to a file on your local file system:
@@ -226,6 +266,10 @@ You can run other operations against the MySQL container as well. Here are some 
 
 ### MySQL CLI
 
+> This shows you how to use `exec` to run `mysql` commands against the database container. See the section above `Log into MySQL` to use the `./vessel mysql` command as a shortcut to logging in using the `mysql` client.
+>
+> This information below will let you do more complex `mysql` commands.
+
 ```bash
 # Execute against the "mysql" container
 # the command "mysql -u root -p".
@@ -256,6 +300,15 @@ You can do the same for some of the other containers as well:
 # Log into the mysql container
 ./vessel exec mysql bash
 ```
+
+Finally, you can use the `ssh` command shortcut as of version `3.1.0`:
+
+```bash
+./vessel ssh app
+./vessel ssh mysql
+```
+
+This will use `bash` to "log into" either containers. Accessing the `node` container is not supported.
 
 ### Redis CLI
 
