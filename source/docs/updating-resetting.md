@@ -102,7 +102,7 @@ docker image rm vessel/node
 docker image rm vessel/app
 
 # Pull down latest base images
-docker pull ubuntu:16.04
+docker pull ubuntu:18.04
 docker pull mysql:5.7
 docker pull node:latest
 ```

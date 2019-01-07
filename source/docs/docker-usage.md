@@ -16,7 +16,7 @@ The first time you start up an application with Vessel, it will download the fol
 
 Vessel will also **build** the following Docker images locally on your machine:
 
-* PHP 7.2 (using <a href="https://hub.docker.com/_/ubuntu/">Ubuntu 16.04</a> as a base)
+* PHP 7.3 (using <a href="https://hub.docker.com/_/ubuntu/">Ubuntu 18.04</a> as a base)
     - [Dockerfile used](https://github.com/shipping-docker/vessel/blob/master/docker-files/docker/app/Dockerfile) to build it
 * NodeJS (<a href="https://hub.docker.com/_/node/">latest</a>), with NPM, Yarn, and Gulp
     - [Dockerfile used](https://github.com/shipping-docker/vessel/blob/master/docker-files/docker/node/Dockerfile) to build it
@@ -38,7 +38,7 @@ You'll see something like this:
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
 vessel/app                   latest              ee589c11428a        6 weeks ago         385MB
 vessel/node                  latest              e0c607290998        6 weeks ago         696MB
-ubuntu                       16.04               ccc7a11d65b1        8 weeks ago         120MB
+ubuntu                       18.04               ccc7a11d65b1        8 weeks ago         120MB
 mysql                        5.7                 c73c7527c03a        2 months ago        412MB
 redis                        alpine              9d8fa9aa0e5b        2 months ago        27.5MB
 node                         8.6                 90223b3d894e        5 months ago        665MB
