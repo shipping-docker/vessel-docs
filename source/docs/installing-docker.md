@@ -6,9 +6,7 @@ title: Installing Docker
 
 <p class="intro">Vessel's only requirment is Docker.</p>
 
-<p>Vessel currently only works on Macintosh and Linux. It uses a bash script to run Docker commands.</p>
-
-> Window support may come in the future. It will require [running Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) which is not supported on Windows 10 **Home** edition.
+<p>Vessel uses a bash script to run Docker commands, it works on Macintosh, Linux and Windows.</p>
 
 <table class="table">
     <thead>
@@ -24,12 +22,11 @@ title: Installing Docker
                 <p>Install Docker on <a href="https://docs.docker.com/docker-for-mac/install/">Mac</a></p>
             </td>
             <td>
-                <p>Install Docker on <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/">Ubuntu</a></p
-
+                <p>Install Docker on <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/">Ubuntu</a></p>
                 <p>Install Docker on <a href="https://docs.docker.com/engine/installation/linux/docker-ce/centos/">CentOS</a></p>
             </td>
             <td>
-                <p>Not Currently Supported</p>
+                <p>Install Docker on <a href="https://docs.docker.com/docker-for-windows/install/">Windows</a></p>
             </td>
         </tr>
     </tbody>
