@@ -286,7 +286,7 @@ You can run other operations against the MySQL container as well. Here are some 
 
 ### App Container CLI (Bash)
 
-If you want to "log into" your application controller, you can run `bash` inside of it. This is just like SSHing into the application container, except we're just executing a `bash` process inside the already-running container.
+If you want to "log into" your application container, you can run `bash` inside of it. This is just like SSHing into the application container, except we're just executing a `bash` process inside the already-running container.
 
 ```bash
 ./vessel exec app bash
