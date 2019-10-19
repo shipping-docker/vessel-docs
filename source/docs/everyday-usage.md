@@ -246,7 +246,7 @@ Let's say we have a local file `exports/example.sql` we want to import into our 
 # mysql root user password
 ./vessel run --rm \
     -v exports:/opt \
-    sh -c "mysql -h mysql -u root -p example < /opt/example.sql"
+    mysql sh -c "mysql -h mysql -u root -p example < /opt/example.sql"
 ```
 
 Here's what this command is doing:
