@@ -23,7 +23,7 @@
 <p>The aim of this project is simplicity. It (only) includes:</p>
 
 <ul>
-<li>PHP 7.3</li>
+<li>PHP 7.4</li>
 <li>MySQL 5.7</li>
 <li>Redis (<a href="https://hub.docker.com/_/redis/">latest</a>)</li>
 <li>NodeJS (<a href="https://hub.docker.com/_/node/">latest</a>), with NPM, Yarn, &amp; Gulp</li>
