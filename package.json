@@ -4,7 +4,7 @@
     "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
     "hasbin": "^1.2.3",
-    "highlight.js": "^9.12.0",
+    "highlight.js": "^10.4.1",
     "laravel-elixir": "^6.0.0-18",
     "laravel-elixir-webpack-official": "^1.0.10",
     "yargs": "^12.0.2"
